@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on February 17, 2012 17:13
+# RailsAdmin config file. Generated on February 17, 2012 17:31
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = []
+  # config.excluded_models = [Aluno, User]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = []
+  # config.included_models = [Aluno, User]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -79,4 +79,26 @@ RailsAdmin.config do |config|
 
   # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
 
+  # config.model Aluno do
+  #   # Found associations:
+  #   # Found columns:
+  #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
+  # config.model User do
+  #   # Found associations:
+  #   # Found columns:
+  #   # Sections:
+  #   list do; end
+  #   export do; end
+  #   show do; end
+  #   edit do; end
+  #   create do; end
+  #   update do; end
+  # end
 end
