@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217194910) do
+ActiveRecord::Schema.define(:version => 20120309080801) do
 
   create_table "alunos", :force => true do |t|
     t.integer  "pasta"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(:version => 20120217194910) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "alunos_cursos", :id => false, :force => true do |t|
+    t.integer "aluno_id"
+    t.integer "curso_id"
+  end
+
   create_table "cursos", :force => true do |t|
     t.string   "nome"
     t.integer  "modalidade_id"
@@ -45,12 +50,14 @@ ActiveRecord::Schema.define(:version => 20120217194910) do
   create_table "disciplinas", :force => true do |t|
     t.string   "nome"
     t.string   "descricao"
-    t.integer  "periodo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "disciplinas", ["periodo_id"], :name => "index_disciplinas_on_periodo_id"
+  create_table "disciplinas_periodos", :id => false, :force => true do |t|
+    t.integer "disciplina_id"
+    t.integer "periodo_id"
+  end
 
   create_table "modalidades", :force => true do |t|
     t.string   "nome"
@@ -58,21 +65,23 @@ ActiveRecord::Schema.define(:version => 20120217194910) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "nota", :force => true do |t|
+  create_table "notas", :force => true do |t|
     t.integer  "valor"
     t.integer  "aluno_id"
     t.integer  "discliplina_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "curso_id"
   end
 
-  add_index "nota", ["aluno_id"], :name => "index_nota_on_aluno_id"
-  add_index "nota", ["discliplina_id"], :name => "index_nota_on_discliplina_id"
+  add_index "notas", ["aluno_id"], :name => "index_notas_on_aluno_id"
+  add_index "notas", ["discliplina_id"], :name => "index_notas_on_discliplina_id"
 
   create_table "periodos", :force => true do |t|
     t.string   "periodo"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "curso_id"
   end
 
   create_table "professors", :force => true do |t|

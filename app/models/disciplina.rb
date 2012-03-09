@@ -1,3 +1,7 @@
 class Disciplina < ActiveRecord::Base
-  belongs_to :periodo
+  has_and_belongs_to_many :periodos
+
+  def name
+    nome
+  end
 end
