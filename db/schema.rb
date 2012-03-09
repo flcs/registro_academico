@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309080801) do
+ActiveRecord::Schema.define(:version => 20120309132332) do
 
   create_table "alunos", :force => true do |t|
     t.integer  "pasta"
@@ -118,8 +118,10 @@ ActiveRecord::Schema.define(:version => 20120309080801) do
   create_table "turmas", :force => true do |t|
     t.integer  "curso_id"
     t.integer  "periodo_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "professor_id"
+    t.string   "professor_nome"
   end
 
   add_index "turmas", ["curso_id"], :name => "index_turmas_on_curso_id"

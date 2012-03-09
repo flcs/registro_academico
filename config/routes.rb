@@ -5,10 +5,11 @@ Registro::Application.routes.draw do
 
   get "home/index"
 
-  
+
 
   root :to => "home#index"
-
+  resources :turmas
+  # get 'professor/:id/turmas' => "turmas#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
