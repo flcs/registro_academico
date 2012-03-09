@@ -22,4 +22,10 @@ class TurmasController < ApplicationController
     @turma = Turma.find(params[:id])
     render json: @turma
   end
+
+  def destroy
+    @turma = Turma.find(params[:id])
+    @turma.destroy
+    head :no_content
+  end
 end

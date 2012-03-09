@@ -25,11 +25,15 @@ Buscar turma de id 2:
 
   curl -X GET http://localhost:3000/turmas/2
 
-Todas as turmas do professor de matrícula 2:
+Deletar turma de id 2:
 
-  curl -X GET http://localhost:3000/turmas/?professor_id=2
+  curl -X DELETE localhost:3000/turmas/1
 
 Cadastrar nova turma:
 
     curl -H 'Content-Type:application/json' -X POST\
     -d '{"curso_id":"1","periodo_id":"1","professor_id":"2"}' http://localhost:3000/turmas/
+
+Todas as turmas do professor de matrícula 2:
+
+    curl -X GET http://localhost:3000/turmas/?professor_id=2
