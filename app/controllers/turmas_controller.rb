@@ -11,11 +11,12 @@ class TurmasController < ApplicationController
   end
 
   def create
-    req = ActiveSupport::JSON.decode request.body
-    servidor = ActiveSupport::JSON.decode Net::HTTP.get('10.12.10.74', '/api/servidor/1/json/', 8000)
-    req[:professor_nome] = servidor["nome"]
+    parametros = ActiveSupport::JSON.decode request.body
+    professor = Net::HTTP.get('10.10.3.126', "/api/servidor/#{parametros['professor_id']}/json/", 8000)
+    parametros[:professor_nome] = ActiveSupport::JSON.decode(professor)["nome"]
 
-    Turma.create req
+    Turma.create parametros
+    head :no_content
   end
 
   def show
