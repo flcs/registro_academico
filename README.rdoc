@@ -6,12 +6,9 @@ Módulo de R.A. para um Projeto Acadêmico de um Sistema de Gestão Educacional
 
 === Instalação
 
-  gem install bundler
-  git clone git://github.com/natanael-araujo/registro_academico.git
-  cd registro_academico
-  bundle install
-  rake db:migrate
-  rails s
+  bash -s < <(curl -s https://raw.github.com/natanael-araujo/registro_academico/master/script/install)
+
+Para usar o módulo de Recursos Humanos, configure o rh_host em config/application.rb
 
 Acesse http://localhost:3000/admin
 

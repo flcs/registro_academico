@@ -1,4 +1,5 @@
 class TurmasController < ApplicationController
+  RH_HOST = Rails.application.config.rh_host
   require "net/http"
 
   def index
@@ -12,9 +13,10 @@ class TurmasController < ApplicationController
 
   def create
     parametros = ActiveSupport::JSON.decode request.body
-    professor = Net::HTTP.get('10.10.3.126', "/api/servidor/#{parametros['professor_id']}/json/", 8000)
-    parametros[:professor_nome] = ActiveSupport::JSON.decode(professor)["nome"]
-
+    if RH_HOST.present?
+      professor = Net::HTTP.get(RH_HOST, "/api/servidor/#{parametros['professor_id']}/json/", 8000)
+      parametros[:professor_nome] = ActiveSupport::JSON.decode(professor)["nome"]
+    end
     Turma.create parametros
     head :no_content
   end
