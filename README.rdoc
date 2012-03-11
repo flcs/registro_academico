@@ -4,8 +4,9 @@ IFF - Bacharelado em Sistemas de Informação, Tópicos Avançados 1
 
 Módulo de R.A. para um Projeto Acadêmico de um Sistema de Gestão Educacional
 
-=== Instalação
+=== Instalação (Ubuntu lucid 32)
 
+  sudo apt-get install curl
   bash -s < <(curl -s https://raw.github.com/natanael-araujo/registro_academico/master/script/install)
 
 Para usar o módulo de Recursos Humanos, configure o rh_host em config/application.rb
