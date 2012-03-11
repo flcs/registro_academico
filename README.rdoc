@@ -7,7 +7,7 @@ Módulo de R.A. para um Projeto Acadêmico de um Sistema de Gestão Educacional
 === Instalação (Ubuntu lucid 32)
 
   sudo apt-get install curl
-  bash -s < <(curl -s https://raw.github.com/natanael-araujo/registro_academico/master/script/install)
+  bash -s < <(curl -s https://raw.github.com/natanael-araujo/registro_academico/master/script/install.sh)
 
 Para usar o módulo de Recursos Humanos, configure o rh_host em config/application.rb
 
